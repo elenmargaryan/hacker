@@ -1,0 +1,3 @@
+HelloHelloeHello dude
+Hello man[object Object]Hello dude
+Hello man{"name":"Dude","age":10,"email":"coolDude@icloud.com"}
