@@ -6,7 +6,7 @@ class Creature{
 }
 
 class Grass extends Creature{
-    constructor(x, y, multiply) {
+    constructor(x, y) {
        super(x,y)
        this.multiply = 0;
 
