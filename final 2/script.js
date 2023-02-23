@@ -151,8 +151,8 @@ function draw() {
         rumbArr[i].mul();
     }
 }
-   setInterval(() => {
-    for (var i in rumbArr){
-        rumbArr[i].appear();
-    }
-}, 5000); 
+//    setInterval(() => {
+//     for (var i in rumbArr){
+//         rumbArr[i].appear();
+//     }
+// }, 5000); 
