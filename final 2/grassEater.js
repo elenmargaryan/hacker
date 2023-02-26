@@ -3,15 +3,23 @@ class GrassEater extends Creature{
         super(x,y)
         this.energy = 8;
         this.directions = [];
-        this.gender = []
+        // this.gender = this.generateGender()
+        // this.color = getthecolor(this.gender)
     }
 
-    gender(){
-        let gnd = random(grasses);
-        if(gnd){
-            fill("")
-        }
-    }
+    // generateGender(){
+    //     let gnd = random(1)
+    //     // console.log(gnd);
+        
+    //     fill("FFA500")
+        
+    // }
+
+    // getthecolor(){
+    //     if(gnd){
+    //         fill("FFA500")
+    //     }
+    // }
 
     getNewCoordinates() {
         this.directions = [

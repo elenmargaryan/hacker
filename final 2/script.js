@@ -1,11 +1,13 @@
-let side = 120;
+let side = 50;
 let grassArr = []
 let grassEatArr = []
 let predatorArr = []
 let hetqArr = []
 let rumbArr = []
 let matrix = []
-function matrixGenerator(size, countGrass, countGrassEater, predatorCount, hetqCount, rumbCount) {
+let jurArr = []
+
+function matrixGenerator(size, countGrass, countGrassEater, predatorCount, hetqCount, rumbCount, jurCount) {
     for (let i = 0; i < size; i++) {
         matrix.push([])
         for (let j = 0; j < size; j++) {
@@ -45,6 +47,16 @@ function matrixGenerator(size, countGrass, countGrassEater, predatorCount, hetqC
             k--
         }
     }
+    for (let k = 0; k < jurCount; k++) {
+        let x = Math.floor(random(size))
+        let y = Math.floor(random(size))
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 6
+        }
+        else {
+            k--
+        }
+    }
     for (let k = 0; k < hetqCount; k++) {
         let x = Math.floor(random(size))
         let y = Math.floor(random(size))
@@ -65,17 +77,18 @@ function matrixGenerator(size, countGrass, countGrassEater, predatorCount, hetqC
             k--
         }
     }
+    
 }
 
 function setup() {
-    matrixGenerator(50, 800, 40, 10, 30, 10)
+    matrixGenerator(50, 800, 40, 10, 30, 10, 1)
     frameRate(10);
     createCanvas(matrix[0].length * side, matrix.length * side);
     background('#acacac');
     for (var y = 0; y < matrix.length; ++y) {
         for (var x = 0; x < matrix[y].length; ++x) {
             if (matrix[y][x] == 1) {
-                var gr = new Grass(x, y,);
+                var gr = new Grass(x, y);
                 grassArr.push(gr);
             }
             else if (matrix[y][x] == 2) {
@@ -98,7 +111,7 @@ function setup() {
 
         }
     }
-console.log(rumbArr);
+// console.log(rumbArr);
 }
 function draw() {
 
@@ -115,13 +128,16 @@ function draw() {
                 fill("yellow");
             }
             else if (matrix[y][x] == 3) {
-                fill("blue");
+                fill("brown");
             }
             else if (matrix[y][x] == 4) {
                 fill("red");
             }
             else if (matrix[y][x] == 5) {
                 fill("black");
+            }
+            else if (matrix[y][x] == 6) {
+                fill("blue");
             }
             rect(x * side, y * side, side, side);
 
@@ -134,6 +150,9 @@ function draw() {
     for (var i in grassEatArr) {
         grassEatArr[i].mul();
     }
+    // for (var i in grassEatArr) {
+    //     grassEatArr[i].generateGender();
+    // }
     for (var i in grassEatArr) {
         grassEatArr[i].eat();
     }
@@ -150,9 +169,18 @@ function draw() {
     for (var i in rumbArr) {
         rumbArr[i].mul();
     }
+    for (var i in rumbArr) {
+        rumbArr[i].mul();
+    }
 }
+
 //    setInterval(() => {
 //     for (var i in rumbArr){
 //         rumbArr[i].appear();
 //     }
 // }, 5000); 
+// document.getElementById("button1").addEventListener("click", buttonFunction)
+
+//  buttonFunction(){
+    
+// }
