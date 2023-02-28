@@ -38,15 +38,15 @@ class Rumb {
     }
 // Rumb-ը պայթեցնում է կողքի 23 վանդակները
 
-    appear() {
-        let x = Math.floor(random(matrix[0].length-1))
-        let y = Math.floor(random(matrix[0].length-1))
-        if (matrix[this.y][this.x] == 0) {
-            let newRumb = new Rumb(x, y)
-            rumbArr.push(newRumb);
-            matrix[y][x] = 5;
-        }
-    }
+    // appear() {
+    //     let x = Math.floor(random(matrix[0].length-1))
+    //     let y = Math.floor(random(matrix[0].length-1))
+    //     if (matrix[this.y][this.x] == 0) {
+    //         let newRumb = new Rumb(x, y)
+    //         rumbArr.push(newRumb);
+    //         matrix[y][x] = 5;
+    //     }
+    // }
 //իմ կարծիքով appear-ը ճիշտ եմ գրել,բայց չգիտեմ ինչու չի աշխատում :(
 
     die() {

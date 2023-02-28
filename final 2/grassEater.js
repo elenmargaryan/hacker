@@ -97,4 +97,5 @@ class GrassEater extends Creature{
             this.move()
         }
     }
+    
 }

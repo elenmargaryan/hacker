@@ -77,11 +77,11 @@ function matrixGenerator(size, countGrass, countGrassEater, predatorCount, hetqC
             k--
         }
     }
-    
+
 }
 
 function setup() {
-    matrixGenerator(50, 800, 40, 10, 30, 10, 1)
+    matrixGenerator(50, 800, 40, 10, 30, 10, 10)
     frameRate(10);
     createCanvas(matrix[0].length * side, matrix.length * side);
     background('#acacac');
@@ -107,11 +107,15 @@ function setup() {
                 let rmb = new Rumb(x, y)
                 rumbArr.push(rmb)
             }
+            else if (matrix[y][x] == 6) {
+                let jr = new Jur(x, y)
+                jurArr.push(jr)
+            }
 
 
         }
     }
-// console.log(rumbArr);
+    // console.log(rumbArr);
 }
 function draw() {
 
@@ -158,7 +162,7 @@ function draw() {
     }
     for (var i in predatorArr) {
         predatorArr[i].mul();
-         predatorArr[i].eat();
+        predatorArr[i].eat();
     }
     for (var i in hetqArr) {
         hetqArr[i].mul();
@@ -172,15 +176,88 @@ function draw() {
     for (var i in rumbArr) {
         rumbArr[i].mul();
     }
+    for (var i in jurArr) {
+        jurArr[i].move();
+    }
+
 }
 
 //    setInterval(() => {
 //     for (var i in rumbArr){
 //         rumbArr[i].appear();
 //     }
-// }, 5000); 
-// document.getElementById("button1").addEventListener("click", buttonFunction)
+// }, 5000);
+function buttonWinterFunction() {
+    for (var i in grassEatArr) {
+        grassEatArr[i].die();
+    }
+    for (var i in predatorArr) {
+        predatorArr[i].die();
+    }
+}
 
-//  buttonFunction(){
-    
+function buttonSpringFunction() {
+    for (var i in grassEatArr) {
+        grassEatArr[i].mul();
+    }
+    for (var i in predatorArr) {
+        predatorArr[i].mul();
+    }
+}
+
+// function buttonAutumnFunction() {
+//     for (var y = 0; y < matrix.length; y++) {
+//         for (var x = 0; x < matrix[y].length; x++) {
+//             if (matrix[y][x] = 0) {
+//                 let newMatrixX = x
+//                 let newMatrixY = y
+//                 matrix[newMatrixY][newMatrixX] = 4
+//                 x = newMatrixX
+//                 y = newMatrixY
+//             }
+
+
+//         }
+//     }
+
+
 // }
+
+function buttonSummerFunction() {
+    for (var i in jurArr) {
+        jurArr[i].die();
+    }
+
+
+}
+
+function buttonAutumnFunction() {
+    for (var i in jurArr) {
+        jurArr[i].mul();
+    }
+
+
+}
+
+function buttonRumbFunction() {
+    for (var i in rumbArr) {
+        rumbArr[i].mul();
+    }
+
+
+}
+
+
+document.getElementById("buttonWinter").addEventListener('click', buttonWinterFunction
+)
+
+document.getElementById("buttonSpring").addEventListener('click', buttonSpringFunction
+)
+
+document.getElementById("buttonSummer").addEventListener('click', buttonSummerFunction
+)
+
+document.getElementById("buttonRumb").addEventListener('click', buttonRumbFunction
+)
+
+

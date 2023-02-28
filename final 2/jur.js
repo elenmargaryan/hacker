@@ -17,15 +17,15 @@ class Jur extends Creature{
             [this.x + 1, this.y + 1]
         ];
     }
-    // die() {
-    //     matrix[this.y][this.x] = 0;
-    //     for (var i in hetqArr) {
-    //         if (this.x == hetqArr[i].x && this.y == hetqArr[i].y) {
-    //             hetqArr.splice(i, 1);
-    //             break;
-    //         }
-    //     }
-    // }
+    die() {
+        matrix[this.y][this.x] = 0;
+        for (var i in jurArr) {
+            if (this.x == jurArr[i].x && this.y == jurArr[i].y) {
+                jurArr.splice(i, 1);
+                break;
+            }
+        }
+    }
     mul() {
         if (this.energy > 40) {
             var jurCell = random(this.chooseCell(0));
@@ -45,10 +45,10 @@ class Jur extends Creature{
             let jurEmptyCells = this.chooseCell(0)
             let oneJurEmptyCell = random(jurEmptyCells)
             if (oneJurEmptyCell) {
-                matrix[this.y][this.x] = 1
-                let jurY = oneJurEmptyCell[1]
-                matrix[jurY][this.x] = 6
-                this.y = hetqY
+                matrix[this.y][this.x] = 0
+                let jurX = oneJurEmptyCell[1]
+                matrix[this.y][jurX] = 6
+                this.x = jurX
             }
         }
         else {
@@ -58,19 +58,19 @@ class Jur extends Creature{
 
     // eat() {
     //     this.getNewCoordinates()
-    //     let hetqs = this.chooseCell(2)
-    //     let oneHetqX = hetqs[0]
-    //     let oneHetqY = hetqs[1];
-    //     if (oneHetqX === this.x && oneHetqY === this.y - 1 ) {
+    //     let jurs = this.chooseCell(0)
+    //     let oneJurX = jurs[0]
+    //     let oneJurY = jurs[1];
+    //     if (oneJurX === this.x - 1 && oneJurY === this.y ) {
     //         this.energy++;
     //         matrix[this.y][this.x] = 0;
 
-    //         matrix[oneHetqY][oneHetqX] = 4;
+    //         matrix[oneJurY][oneJurX] = 6;
 
-    //         this.y = oneHetqY;
-    //         for (var i in hetqArr) {
-    //             if (oneHetqX == hetqArr[i].x && oneHetqY == hetqArr[i].y ) {
-    //                 hetqArr.splice(i, 1);
+    //         this.x = oneJurX;
+    //         for (var i in jurArr) {
+    //             if (oneJurX == jurArr[i].x && onejurY == jurArr[i].y ) {
+    //                 jurArr.splice(i, 1);
     //                 break;
     //             }
     //         }
@@ -78,5 +78,5 @@ class Jur extends Creature{
     //         this.move()
     //     }
     // }
-// hetq-ը ուտում է այն խոտակերներին,որոնք գտնվում են իրենից 1 վանդակ վերև
+
 }
