@@ -60,7 +60,6 @@ class Rumb {
     }
     mul() {
         this.energy++
-        console.log(this.directions);
         for (let k in this.directions) {
             if (this.directions[k][1] >= 0 && this.directions[k][1] < matrix[0].length && this.directions[k][0] >= 0 && this.directions[k][0] < matrix.length) {
                 if (this.energy >= 10) {

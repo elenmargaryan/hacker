@@ -1,6 +1,6 @@
-class GrassEater extends Creature{
+class GrassEater extends Creature {
     constructor(x, y) {
-        super(x,y)
+        super(x, y)
         this.energy = 8;
         this.directions = [];
         // this.gender = this.generateGender()
@@ -10,9 +10,9 @@ class GrassEater extends Creature{
     // generateGender(){
     //     let gnd = random(1)
     //     // console.log(gnd);
-        
+
     //     fill("FFA500")
-        
+
     // }
 
     // getthecolor(){
@@ -34,6 +34,7 @@ class GrassEater extends Creature{
         ];
     }
     die() {
+        // console.log(matrix[this.y][this.x]);
         matrix[this.y][this.x] = 0;
         for (var i in grassEatArr) {
             if (this.x == grassEatArr[i].x && this.y == grassEatArr[i].y) {
@@ -41,11 +42,13 @@ class GrassEater extends Creature{
                 break;
             }
         }
+        // console.log(matrix[this.y][this.x]);
     }
-     mul() {
+
+    mul() {
         if (this.energy >= 10) {
             var newCell = random(this.chooseCell(0));
-            if (newCell) { 
+            if (newCell) {
                 var newGrassEater = new GrassEater(newCell[0], newCell[1]);
                 grassEatArr.push(newGrassEater);
                 matrix[newCell[1]][newCell[0]] = 2;
@@ -97,5 +100,5 @@ class GrassEater extends Creature{
             this.move()
         }
     }
-    
+
 }

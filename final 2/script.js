@@ -81,7 +81,7 @@ function matrixGenerator(size, countGrass, countGrassEater, predatorCount, hetqC
 }
 
 function setup() {
-    matrixGenerator(50, 800, 40, 10, 30, 10, 10)
+    matrixGenerator(50, 800, 1, 10, 30, 10, 10)
     frameRate(10);
     createCanvas(matrix[0].length * side, matrix.length * side);
     background('#acacac');
@@ -117,8 +117,9 @@ function setup() {
     }
     // console.log(rumbArr);
 }
-function draw() {
 
+function drawGrid()
+{
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 
@@ -147,6 +148,11 @@ function draw() {
 
         }
     }
+}
+
+function draw() {
+
+    drawGrid()
 
     for (var i in grassArr) {
         grassArr[i].mul();
@@ -187,23 +193,19 @@ function draw() {
 //         rumbArr[i].appear();
 //     }
 // }, 5000);
-function buttonWinterFunction() {
-    for (var i in grassEatArr) {
-        grassEatArr[i].die();
-    }
-    for (var i in predatorArr) {
-        predatorArr[i].die();
-    }
-}
 
-function buttonSpringFunction() {
-    for (var i in grassEatArr) {
-        grassEatArr[i].mul();
-    }
-    for (var i in predatorArr) {
-        predatorArr[i].mul();
-    }
-}
+// function buttonWinterFunction() {
+   
+    
+    
+// }
+
+// function buttonSpringFunction() {
+//     for (var i in grassEatArr) {
+//         grassEatArr[i].mul();
+//     }
+    
+// }
 
 // function buttonAutumnFunction() {
 //     for (var y = 0; y < matrix.length; y++) {
@@ -223,41 +225,61 @@ function buttonSpringFunction() {
 
 // }
 
-function buttonSummerFunction() {
-    for (var i in jurArr) {
-        jurArr[i].die();
+// function buttonSummerFunction() {
+//     for (var i in jurArr) {
+//         jurArr[i].die();
+//     }
+
+
+// }
+
+// function buttonAutumnFunction() {
+//     for (var i in jurArr) {
+//         jurArr[i].mul();
+//     }
+
+
+// }
+
+// function buttonAutumnFunction() {
+   
+//         for (var i in predatorArr) {
+//             predatorArr[i].mul();
+//         }
+
+
+// }
+
+
+var winterButton = document.querySelector("#buttonWinter")
+winterButton.addEventListener('click', ()=>{
+    for(var h = 0;h<100;h++){
+      for (var i in grassEatArr) {   
+        grassEatArr[i].die();  
+    }  
     }
+    
+    // drawGrid()
+    // grassEatArr = []
 
+})
 
-}
+// var winterSpring = document.querySelector("#buttonSpring")
+// winterButton.addEventListener('click', ()=>{
+//     for(var h = 0;h<100;h++){
+//       for (var i in grassEatArr) {   
+//         grassEatArr[i].mul();  
+//     }  
+//     }
+    
+//     // drawGrid()
+//     // grassEatArr = []
 
-function buttonAutumnFunction() {
-    for (var i in jurArr) {
-        jurArr[i].mul();
-    }
+// })
+// document.getElementById("buttonSpring").addEventListener('click', buttonSpringFunction())
 
+// document.getElementById("buttonSummer").addEventListener('click', buttonSummerFunction())
 
-}
-
-function buttonRumbFunction() {
-    for (var i in rumbArr) {
-        rumbArr[i].mul();
-    }
-
-
-}
-
-
-document.getElementById("buttonWinter").addEventListener('click', buttonWinterFunction
-)
-
-document.getElementById("buttonSpring").addEventListener('click', buttonSpringFunction
-)
-
-document.getElementById("buttonSummer").addEventListener('click', buttonSummerFunction
-)
-
-document.getElementById("buttonRumb").addEventListener('click', buttonRumbFunction
-)
+// document.getElementById("buttonAutumn").addEventListener('click', buttonAutumnFunction())
 
 
