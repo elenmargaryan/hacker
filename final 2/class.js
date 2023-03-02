@@ -27,5 +27,4 @@ class Grass extends Creature{
         }
     }
  
-     
 }

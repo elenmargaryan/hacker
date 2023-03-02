@@ -118,6 +118,8 @@ function setup() {
     // console.log(rumbArr);
 }
 
+let value = "#acacac"
+let red = "red"
 function drawGrid()
 {
     for (var y = 0; y < matrix.length; y++) {
@@ -127,7 +129,7 @@ function drawGrid()
                 fill("green");
             }
             else if (matrix[y][x] == 0) {
-                fill("#acacac");
+                fill(value);
             }
             else if (matrix[y][x] == 2) {
                 fill("yellow");
@@ -136,7 +138,7 @@ function drawGrid()
                 fill("brown");
             }
             else if (matrix[y][x] == 4) {
-                fill("red");
+                fill(red);
             }
             else if (matrix[y][x] == 5) {
                 fill("black");
@@ -149,6 +151,7 @@ function drawGrid()
         }
     }
 }
+
 
 function draw() {
 
@@ -186,13 +189,56 @@ function draw() {
         jurArr[i].move();
     }
 
+    if (mouseIsPressed === true) {
+        if(red === "red"){
+            red = "White"
+        }
+    }
+       else {
+        red = "red"
+      }
+//  rect(mouseX,75,75,75)
 }
 
-//    setInterval(() => {
-//     for (var i in rumbArr){
-//         rumbArr[i].appear();
-//     }
-// }, 5000);
+function mouseClicked(){
+    drawGrid()
+    x = mouseX
+    y = mouseY
+    console.log(x,y);
+    if(x < matrix[0].length * side && y < matrix.length * side){
+      for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[y].length; x++) {
+             if(value === "#acacac"){
+                value = "#800080"
+             }
+            //  else{
+            //     value = "#acacac"
+            //  }
+            // else if(value === 255){
+            //     value = 0
+            // }
+            
+
+            
+            
+            rect(x * side, y * side, side, side);
+
+        }
+    }  
+    }
+    
+    
+}
+ function doubleClicked(){
+    // drawGrid()
+//    GrassEater.energy = 3
+    
+ }
+   setInterval(() => {
+    for (var i in rumbArr){
+        rumbArr[i].appear();
+    }
+}, 5000);
 
 // function buttonWinterFunction() {
    
@@ -256,6 +302,19 @@ winterButton.addEventListener('click', ()=>{
     for(var h = 0;h<100;h++){
       for (var i in grassEatArr) {   
         grassEatArr[i].die();  
+    }  
+    }
+    
+    // drawGrid()
+    // grassEatArr = []
+
+})
+
+var summerButton = document.querySelector("#buttonSummer")
+summerButton.addEventListener('click', ()=>{
+    for(var l = 0;l<100;l++){
+      for (var i in jurArr) {   
+        jurArr[i].die();  
     }  
     }
     
