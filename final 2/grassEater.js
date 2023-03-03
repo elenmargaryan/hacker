@@ -8,12 +8,56 @@ class GrassEater extends Creature {
     }
 
     // generateGender(){
-    //     let gnd = random(1)
-    //     // console.log(gnd);
+        
+    //     let randomGnd = floor(random(0,2))
+    //     console.log(randomGnd);
+    //     let gndX = this.x
+    //     let gndY = this.y
+    //     yellow = "#E49B0F"
+    //     matrix[gndY][gndX] = yellow
+        // let genderCells = random(grassEatArr)
+        // console.log(grassEatArr[i][0]);
+        // let gnd = random(grassEatArr)
+        // let gnd = floor(rndGnd)
+        // let num = Math.floor(Math.random() * 2)
+        // console.log(gnd);
+        // // if(gnd = 1){
+        //     let gndX = gnd[0]
+        //     let gndY = gnd[1]
+        //     // var gender = new GrassEater(gnd[0], gndl[1]);
+        //     yellow = "#E49B0F"
+        //     matrix[gndY][gndX]=yellow
+        // if (this.energy > 0) {
+        //     // this.getNewCoordinates();
+        //     this.energy--;
+        //     // let genderCells = this.chooseCell(2)
+            
+        //     let oneGenderCell = random(this.chooseCell(2))
+            
+        //         for(var m = 0;m<5;m++){
+        //         if (oneGenderCell) {
+        //         let genderX = oneGenderCell[0]
+        //         let genderY = oneGenderCell[1]
+        //         yellow = "#E49B0F"
+        //         matrix[genderY][genderX] = yellow
+        //         console.log(matrix[genderY][genderX]); 
+        //         }
+        //         // matrix[this.y][this.x] = 0
+                
+                
+        //         // this.y = genderY
+        //         // this.x = genderX
+        //     }
+        //     // else{
+        //     //     let yellow = "yellow"
+        //     //     matrix[this.y][this.x] = yellow
+        //     // }
+        // }
+        
 
-    //     fill("FFA500")
+        // fill("FFA500")
 
-    // }
+    
 
     // getthecolor(){
     //     if(gnd){

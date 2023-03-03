@@ -7,6 +7,7 @@ let rumbArr = []
 let matrix = []
 let jurArr = []
 
+
 function matrixGenerator(size, countGrass, countGrassEater, predatorCount, hetqCount, rumbCount, jurCount) {
     for (let i = 0; i < size; i++) {
         matrix.push([])
@@ -118,21 +119,33 @@ function setup() {
     // console.log(rumbArr);
 }
 
+// function mousePressed(){
+// setTimeout(genderFunct,3000)
+// }
+// setTimeout(genderFunct,3000)
+
+function genderFunct(){
+    console.log("yey");
+}
+
 let value = "#acacac"
 let red = "red"
+let yellow = "yellow"
+let green = 34
+// let yellowEh = "#E49B0F"
 function drawGrid()
 {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 
             if (matrix[y][x] == 1) {
-                fill("green");
+                fill(green,green+105,green);
             }
             else if (matrix[y][x] == 0) {
                 fill(value);
             }
             else if (matrix[y][x] == 2) {
-                fill("yellow");
+                fill(yellow);
             }
             else if (matrix[y][x] == 3) {
                 fill("brown");
@@ -163,6 +176,9 @@ function draw() {
     for (var i in grassEatArr) {
         grassEatArr[i].mul();
     }
+    // for (var i in grassEatArr) {
+    //     grassEatArr[i].generateGender();
+    // }
     // for (var i in grassEatArr) {
     //     grassEatArr[i].generateGender();
     // }
@@ -197,8 +213,20 @@ function draw() {
        else {
         red = "red"
       }
-//  rect(mouseX,75,75,75)
+ rect(mouseX,75,75,75)
 }
+
+function mouseMoved() {
+    green = green + 2;
+    if (green > 0) {
+      green = (green,green+105,green);
+      
+    }
+  }
+
+// function colorChange(){
+     
+// }
 
 function mouseClicked(){
     drawGrid()
@@ -229,16 +257,37 @@ function mouseClicked(){
     
     
 }
- function doubleClicked(){
-    // drawGrid()
-//    GrassEater.energy = 3
+// //  function doubleClicked(){
+//     // drawGrid()
+// //    GrassEater.energy = 3
     
- }
-   setInterval(() => {
-    for (var i in rumbArr){
-        rumbArr[i].appear();
-    }
-}, 5000);
+//  }
+//    setInterval(() => {
+//     for (var i in rumbArr){
+//         rumbArr[i].appear();
+//     }
+// }, 5000);
+
+// function mouseClicked(){
+//     let num = Math.floor(Math.random() * 2)
+//     console.log(num);
+//     for(var k = 0; k<3 ; k++){
+//         if(num = 1){
+//       yellow = "#E49B0F"
+//     }
+//     // else{
+//     //     yellow = "yellow"
+//     // }
+//     }
+//     // let g = random(0,1)
+    
+// }
+
+
+
+// function gender(){
+    
+// }
 
 // function buttonWinterFunction() {
    
@@ -302,6 +351,18 @@ winterButton.addEventListener('click', ()=>{
     for(var h = 0;h<100;h++){
       for (var i in grassEatArr) {   
         grassEatArr[i].die();  
+    }  
+    }
+    
+    // drawGrid()
+    // grassEatArr = []
+
+})
+var springButton = document.querySelector("#buttonSpring")
+springButton.addEventListener('click', ()=>{
+    for(var g = 0;g<30;g++){
+      for (var i in predatorArr) {   
+        predatorArr[i].die();  
     }  
     }
     
