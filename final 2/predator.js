@@ -81,4 +81,11 @@ class Predator extends Creature{
             this.move()
         }
     }
+    returnEnargy(){
+        let jurCell = this.chooseCell(6)
+        let newJurCell = random(jurCell)
+        if(newJurCell){
+            this.energy += 20
+    }
+  }
 }

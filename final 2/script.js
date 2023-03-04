@@ -7,6 +7,17 @@ let rumbArr = []
 let matrix = []
 let jurArr = []
 
+let value = "#acacac"
+let red = "red"
+let yellow = "yellow"
+
+let green1 = 34
+let green2 = 34
+let green3 = 34
+let green = (green1,green2,green3)
+let speed = 60
+// let createRumbArr = []
+
 
 function matrixGenerator(size, countGrass, countGrassEater, predatorCount, hetqCount, rumbCount, jurCount) {
     for (let i = 0; i < size; i++) {
@@ -38,6 +49,16 @@ function matrixGenerator(size, countGrass, countGrassEater, predatorCount, hetqC
             k--
         }
     }
+    // for (let k = 0; k < createRumbCount; k++) {
+    //     let x = Math.floor(random(size))
+    //     let y = Math.floor(random(size))
+    //     if (matrix[y][x] == 0) {
+    //         matrix[y][x] = 7
+    //     }
+    //     else {
+    //         k--
+    //     }
+    // }
     for (let k = 0; k < predatorCount; k++) {
         let x = Math.floor(random(size))
         let y = Math.floor(random(size))
@@ -83,7 +104,7 @@ function matrixGenerator(size, countGrass, countGrassEater, predatorCount, hetqC
 
 function setup() {
     matrixGenerator(50, 800, 1, 10, 30, 10, 10)
-    frameRate(10);
+    frameRate(speed);
     createCanvas(matrix[0].length * side, matrix.length * side);
     background('#acacac');
     for (var y = 0; y < matrix.length; ++y) {
@@ -128,10 +149,7 @@ function genderFunct(){
     console.log("yey");
 }
 
-let value = "#acacac"
-let red = "red"
-let yellow = "yellow"
-let green = 34
+
 // let yellowEh = "#E49B0F"
 function drawGrid()
 {
@@ -139,7 +157,7 @@ function drawGrid()
         for (var x = 0; x < matrix[y].length; x++) {
 
             if (matrix[y][x] == 1) {
-                fill(green,green+105,green);
+                fill(green1,green2+105,green3);
             }
             else if (matrix[y][x] == 0) {
                 fill(value);
@@ -159,6 +177,9 @@ function drawGrid()
             else if (matrix[y][x] == 6) {
                 fill("blue");
             }
+            // else if (matrix[y][x] == 7) {
+            //     fill("black");
+            // }
             rect(x * side, y * side, side, side);
 
         }
@@ -350,7 +371,11 @@ var winterButton = document.querySelector("#buttonWinter")
 winterButton.addEventListener('click', ()=>{
     for(var h = 0;h<100;h++){
       for (var i in grassEatArr) {   
-        grassEatArr[i].die();  
+        grassEatArr[i].die();
+        green1 = green1 + 221
+        green2 = green2 + 221
+        green3 = green3 + 221
+        // console.log(speed);
     }  
     }
     
@@ -363,6 +388,7 @@ springButton.addEventListener('click', ()=>{
     for(var g = 0;g<30;g++){
       for (var i in predatorArr) {   
         predatorArr[i].die();  
+        // (green + 90,green + 218,green - 34)
     }  
     }
     
@@ -383,6 +409,35 @@ summerButton.addEventListener('click', ()=>{
     // grassEatArr = []
 
 })
+
+var autumnButton = document.querySelector("#buttonAutumn")
+autumnButton.addEventListener('click', ()=>{
+    for(var u = 0;u<100;u++){
+      for (var i in hetqArr) {   
+        hetqArr[i].die();  
+        green1 = green1 + 221
+        green2 = green2 +119
+        green3 = green3-34
+    }  
+    }
+    
+    // drawGrid()
+    // grassEatArr = []
+
+})
+
+// var siButton = document.querySelector("#buttonRumb")
+// summerButton.addEventListener('click', ()=>{
+//     for(var n = 0;n<10;l++){
+//       for (var i in jurArr) {   
+//         jurArr[i].die();  
+//     }  
+//     }
+    
+//     // drawGrid()
+//     // grassEatArr = []
+
+// })
 
 // var winterSpring = document.querySelector("#buttonSpring")
 // winterButton.addEventListener('click', ()=>{
